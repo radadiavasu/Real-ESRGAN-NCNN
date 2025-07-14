@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "models": {
+    "realesrgan-x4plus": {
+      "param": "models/realesrgan-x4plus.param",
+      "bin": "models/realesrgan-x4plus.bin",
+      "scale": 4
+    },
+    "realesrgan-x4plus-anime": {
+      "param": "models/realesrgan-x4plus-anime.param",
+      "bin": "models/realesrgan-x4plus-anime.bin",
+      "scale": 4
+    }
+  },
+  "executable": {
+    "windows": "bin/realesrgan-ncnn-vulkan.exe",
+    "linux": "bin/realesrgan-ncnn-vulkan",
+    "macos": "bin/realesrgan-ncnn-vulkan"
+  }
+}
