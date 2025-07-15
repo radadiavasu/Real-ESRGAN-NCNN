@@ -40,7 +40,7 @@ RealESRGAN-NCNN/
 - 4GB+ RAM
 - 1GB+ free disk space
 
-## Troubleshooting:
+## 🚧Troubleshooting:
 - If the app doesn't start, ensure all files are extracted properly
 - If processing fails, check that the NCNN executable is in the 'bin' folder
 - For GPU acceleration, ensure compatible drivers are installed
