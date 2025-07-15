@@ -53,5 +53,5 @@ RealESRGAN-NCNN/
 - Always set `Scale settings` on 4x. if set in 2x raise error because model param's can only compute for 4x.
 - Always prefer less than 2k image dimentions, check h * w before processing otherwise error occur for exceeding the image pixels. You can initally decrease their pixels because after processing you get 4k level image.
 
-🚩## Updated Build Releases
+## 🚩Updated Build Releases
 - Consider latest releases at https://github.com/radadiavasu/Real-ESRGAN-NCNN/releases/ section.
