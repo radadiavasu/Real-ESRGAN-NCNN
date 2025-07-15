@@ -7,7 +7,7 @@
 4. Double-click 'RealESRGAN-NCNN.exe' to run the application
 
 ## Required Files Structure:
-``
+```
 RealESRGAN-NCNN/
 ├── RealESRGAN-NCNN.exe          # Main application
 ├── bin/
@@ -19,4 +19,4 @@ RealESRGAN-NCNN/
 │   ├── realesrgan-x4plus-anime.bin
 │   └── ...
 └── _internal/                   # Application dependencies (auto-generated)
-``
+```
