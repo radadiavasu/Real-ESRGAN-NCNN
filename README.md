@@ -1,6 +1,6 @@
 # Real-ESRGAN NCNN Image Upscaler
 
-## Quick Start (For going through the code.)
+## 🔧Quick Start (For going through the code.)
 1. Extract this ZIP file to any folder
 2. Download Real-ESRGAN NCNN models and place them in the 'models' folder
 3. Download Real-ESRGAN NCNN executable and place it in the 'bin' folder
@@ -9,7 +9,7 @@
 6. you have to replace `dist_final` models and bin to `download_dependencies.py` models and bin.
 7. Double-click `RealESRGAN-NCNN.exe` to run the application
 
-## Required Files Structure:
+## 👀Required Files Structure:
 ```
 RealESRGAN-NCNN/
 ├── RealESRGAN-NCNN.exe          # Main application
@@ -24,7 +24,7 @@ RealESRGAN-NCNN/
 └── _internal/                   # Application dependencies (auto-generated)
 ```
 
-## Usage:
+## ⚡Usage:
 1. Click 'Load Image' to select an image
 2. Choose model and scale settings
 3. Click 'Process Image' to upscale
@@ -34,7 +34,7 @@ RealESRGAN-NCNN/
 - Input: PNG, JPG, JPEG, BMP, TIF, TIFF, WEBP
 - Output: JPG, PNG, WEBP
 
-## System Requirements:
+## 💻System Requirements:
 - Windows 10/11 (64-bit)
 - Compatible GPU (Optional; For fast proecssing)
 - 4GB+ RAM
