@@ -5,9 +5,9 @@
 2. Download Real-ESRGAN NCNN models and place them in the 'models' folder
 3. Download Real-ESRGAN NCNN executable and place it in the 'bin' folder
 4. If you don't want to download manually then run `download_dependencies.py` file directly.
-5. Run `build.py` file for generate 'RealESRGAN-NCNN.exe'.
+5. Run `build.py` file for generate `RealESRGAN-NCNN.exe`.
 6. you have to replace `dist_final` models and bin to `download_dependencies.py` models and bin.
-7. Double-click 'RealESRGAN-NCNN.exe' to run the application
+7. Double-click `RealESRGAN-NCNN.exe` to run the application
 
 ## Required Files Structure:
 ```
