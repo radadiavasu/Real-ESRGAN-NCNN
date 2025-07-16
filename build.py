@@ -92,19 +92,16 @@ def create_distribution():
     """Create final distribution folder"""
     print("Creating distribution...")
     
-    # Create dist directory structure
     dist_dir = Path("dist_final")
     if dist_dir.exists():
         shutil.rmtree(dist_dir)
     
     dist_dir.mkdir()
     
-    # Copy executable files
     exe_dir = Path("dist/RealESRGAN-NCNN")
     if exe_dir.exists():
         shutil.copytree(exe_dir, dist_dir / "RealESRGAN-NCNN")
     
-    # Create README
     readme_content = """
 # Real-ESRGAN NCNN Image Upscaler
 
@@ -158,7 +155,6 @@ RealESRGAN-NCNN/
     with open(dist_dir / "README.txt", 'w', encoding="utf-8") as f:
         f.write(readme_content)
     
-    # Create directory structure
     (dist_dir / "RealESRGAN-NCNN" / "bin").mkdir(parents=True, exist_ok=True)
     (dist_dir / "RealESRGAN-NCNN" / "models").mkdir(parents=True, exist_ok=True)
     
@@ -181,23 +177,18 @@ def main():
     print("Real-ESRGAN NCNN Build Script")
     print("=" * 40)
     
-    # Check if app_ncnn.py exists
     if not os.path.exists('app_ncnn.py'):
         print("Error: app_ncnn.py not found!")
         print("Please ensure the main application file is in the current directory.")
         return
     
     try:
-        # Step 1: Install dependencies
         install_dependencies()
         
-        # Step 2: Create spec file
         create_spec_file()
         
-        # Step 3: Build executable
         build_executable()
         
-        # Step 4: Create distribution
         create_distribution()
         
         print("\n" + "=" * 40)
