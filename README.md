@@ -49,7 +49,7 @@ RealESRGAN-NCNN/
 - CPU: Takes around 15-20 min for per image.
 - GPU: Depend on GPU in my case I have NVIDIA RTX 4060 takes around 20-30 sec per img.
 
-## Note
+## 📝Note
 - Always set `Scale settings` on 4x. if set in 2x raise error because model param's can only compute for 4x.
 - Always prefer less than 2k image dimentions, check h * w before processing otherwise error occur for exceeding the image pixels. You can initally decrease their pixels because after processing you get 4k level image.
 
