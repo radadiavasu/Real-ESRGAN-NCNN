@@ -21,7 +21,7 @@ except ImportError:
 
 class NCNNUpscalerThread(QThread):
     progress = Signal(int)
-    result = Signal(str)  # Path to output image
+    result = Signal(str)  # output image
     finished = Signal()
     error = Signal(str)
     
@@ -35,7 +35,6 @@ class NCNNUpscalerThread(QThread):
         
     def run(self):
         try:
-            # Signal progress at start
             self.progress.emit(10)
             
             # Prepare command
@@ -48,10 +47,8 @@ class NCNNUpscalerThread(QThread):
                 "-f", "jpg"  # Output format
             ]
             
-            # Signal progress
             self.progress.emit(30)
             
-            # Run the command
             result = subprocess.run(cmd, capture_output=True, text=True)
             
             if result.returncode == 0:
@@ -69,22 +66,18 @@ class RealESRGANNCNNApp(QMainWindow):
     def __init__(self):
         super().__init__()
         
-        # Initialize variables
         self.input_image_path = None
         self.input_image = None
         self.output_image = None
         self.output_image_path = None
         self.temp_dir = tempfile.mkdtemp()
         
-        # Find NCNN executable
         self.realesrgan_ncnn_path = self.find_ncnn_executable()
         
-        # Setup UI
         self.setWindowTitle("Real-ESRGAN NCNN Image Upscaler")
         self.setGeometry(100, 100, 1200, 800)
         self.setup_ui()
         
-        # Check if NCNN is available
         self.check_ncnn_availability()
 
     def find_ncnn_executable(self):
@@ -96,10 +89,8 @@ class RealESRGANNCNNApp(QMainWindow):
             "realesrgan-ncnn"
         ]
         
-        # Check in current directory
         current_dir = os.path.dirname(os.path.abspath(__file__))
         
-        # Check in various subdirectories
         search_paths = [
             current_dir,
             os.path.join(current_dir, "bin"),
@@ -128,7 +119,6 @@ class RealESRGANNCNNApp(QMainWindow):
             self.statusBar().showMessage("NCNN executable not found")
             return False
         
-        # Test if executable works
         try:
             result = subprocess.run([self.realesrgan_ncnn_path, "-h"], 
                                   capture_output=True, text=True, timeout=10)
@@ -147,11 +137,9 @@ class RealESRGANNCNNApp(QMainWindow):
         return False
 
     def setup_ui(self):
-        # Main widget and layout
         main_widget = QWidget()
         main_layout = QVBoxLayout(main_widget)
         
-        # Create header with logo and title
         header_layout = QHBoxLayout()
         logo_label = QLabel("Real-ESRGAN NCNN Image Upscaler")
         logo_label.setFont(QFont("Arial", 16, QFont.Weight.Bold))
@@ -198,7 +186,7 @@ class RealESRGANNCNNApp(QMainWindow):
         output_layout.addWidget(output_label)
         output_layout.addWidget(self.output_image_view)
         
-        # Add frames to splitter
+        # frames to splitter
         image_splitter.addWidget(input_frame)
         image_splitter.addWidget(output_frame)
         
@@ -211,18 +199,15 @@ class RealESRGANNCNNApp(QMainWindow):
         input_group = QGroupBox("Input Controls")
         input_controls = QVBoxLayout(input_group)
         
-        # Load image button
         self.load_btn = QPushButton("Load Image")
         self.load_btn.clicked.connect(self.load_image)
         input_controls.addWidget(self.load_btn)
         
         controls_layout.addWidget(input_group, 0, 0)
         
-        # Group box for model controls
         model_group = QGroupBox("Model Settings")
         model_controls = QGridLayout(model_group)
         
-        # Model selection
         model_controls.addWidget(QLabel("Model:"), 0, 0)
         self.model_combo = QComboBox()
         self.model_combo.addItems([
@@ -232,14 +217,12 @@ class RealESRGANNCNNApp(QMainWindow):
         ])
         model_controls.addWidget(self.model_combo, 0, 1)
         
-        # Scale factor
         model_controls.addWidget(QLabel("Scale:"), 1, 0)
         self.scale_combo = QComboBox()
         self.scale_combo.addItems(["2", "4"])
         self.scale_combo.setCurrentIndex(1)  # Default to 4
         model_controls.addWidget(self.scale_combo, 1, 1)
         
-        # Output format
         model_controls.addWidget(QLabel("Output Format:"), 2, 0)
         self.format_combo = QComboBox()
         self.format_combo.addItems(["jpg", "png", "webp"])
@@ -247,17 +230,14 @@ class RealESRGANNCNNApp(QMainWindow):
         
         controls_layout.addWidget(model_group, 0, 1, 2, 1)
         
-        # Group box for output controls
         output_group = QGroupBox("Output Controls")
         output_controls = QVBoxLayout(output_group)
         
-        # Process button
         self.process_btn = QPushButton("Process Image")
         self.process_btn.clicked.connect(self.process_image)
         self.process_btn.setEnabled(False)
         output_controls.addWidget(self.process_btn)
         
-        # Save button
         self.save_btn = QPushButton("Save Result")
         self.save_btn.clicked.connect(self.save_image)
         self.save_btn.setEnabled(False)
@@ -265,7 +245,6 @@ class RealESRGANNCNNApp(QMainWindow):
         
         controls_layout.addWidget(output_group, 1, 0)
         
-        # Progress section
         progress_group = QGroupBox("Progress")
         progress_layout = QVBoxLayout(progress_group)
         
@@ -296,17 +275,13 @@ class RealESRGANNCNNApp(QMainWindow):
         
         if file_path:
             try:
-                # Load image
                 self.input_image_path = file_path
                 self.input_image = Image.open(file_path).convert('RGB')
                 
-                # Display input image
                 self.display_image(self.input_image, self.input_image_view)
                 
-                # Enable process button
                 self.process_btn.setEnabled(True)
                 
-                # Show image dimensions in status bar
                 width, height = self.input_image.size
                 self.statusBar().showMessage(f"Loaded image: {os.path.basename(file_path)} ({width}x{height})")
                 self.status_label.setText(f"Image loaded: {width}x{height}")
@@ -355,11 +330,9 @@ class RealESRGANNCNNApp(QMainWindow):
         if self.input_image_path is None or self.realesrgan_ncnn_path is None:
             return
         
-        # Disable buttons during processing
         self.process_btn.setEnabled(False)
         self.load_btn.setEnabled(False)
         
-        # Reset progress bar
         self.progress_bar.setValue(0)
         self.status_label.setText("Processing...")
         
@@ -368,7 +341,6 @@ class RealESRGANNCNNApp(QMainWindow):
         scale = int(self.scale_combo.currentText())
         output_format = self.format_combo.currentText()
         
-        # Create temporary output path
         input_basename = os.path.basename(self.input_image_path)
         name, _ = os.path.splitext(input_basename)
         self.output_image_path = os.path.join(self.temp_dir, f"{name}_upscaled.{output_format}")
@@ -412,16 +384,13 @@ class RealESRGANNCNNApp(QMainWindow):
             self.handle_error(f"Error loading result: {str(e)}")
     
     def processing_finished(self):
-        # Re-enable buttons
         self.process_btn.setEnabled(True)
         self.load_btn.setEnabled(True)
     
     def handle_error(self, error_msg):
-        # Re-enable buttons
         self.process_btn.setEnabled(True)
         self.load_btn.setEnabled(True)
         
-        # Show error
         self.statusBar().showMessage(f"Error: {error_msg}")
         self.status_label.setText("Error occurred")
         
@@ -442,7 +411,6 @@ class RealESRGANNCNNApp(QMainWindow):
         output_format = self.format_combo.currentText()
         default_name = f"{name}_upscaled.{output_format}"
         
-        # Get save location
         save_path, _ = QFileDialog.getSaveFileName(
             self, "Save Image", default_name, f"Image Files (*.{output_format})"
         )
@@ -456,7 +424,6 @@ class RealESRGANNCNNApp(QMainWindow):
                     # Fallback: save using PIL
                     self.output_image.save(save_path)
                 
-                # Update status
                 self.statusBar().showMessage(f"Saved image as: {os.path.basename(save_path)}")
                 self.status_label.setText("Image saved successfully")
             
@@ -471,7 +438,7 @@ class RealESRGANNCNNApp(QMainWindow):
                 msg.exec()
     
     def closeEvent(self, event):
-        # Clean up temporary directory
+        """Clean up temporary directory"""
         try:
             shutil.rmtree(self.temp_dir, ignore_errors=True)
         except:
@@ -479,10 +446,8 @@ class RealESRGANNCNNApp(QMainWindow):
         event.accept()
 
 def main():
-    # Create application
     app = QApplication(sys.argv)
     
-    # Set application info
     app.setApplicationName("Real-ESRGAN NCNN")
     app.setApplicationVersion("1.0")
     app.setOrganizationName("Real-ESRGAN")
@@ -491,7 +456,6 @@ def main():
     if has_qdarkstyle:
         app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6'))
     else:
-        # Apply basic dark style if qdarkstyle is not available
         app.setStyleSheet("""
             QMainWindow, QWidget {
                 background-color: #2D2D30;
@@ -571,11 +535,9 @@ def main():
             }
         """)
     
-    # Create and show main window
     window = RealESRGANNCNNApp()
     window.show()
     
-    # Run application
     sys.exit(app.exec())
 
 if __name__ == "__main__":
