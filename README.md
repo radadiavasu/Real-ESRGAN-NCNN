@@ -45,7 +45,7 @@ RealESRGAN-NCNN/
 - If processing fails, check that the NCNN executable is in the 'bin' folder
 - For GPU acceleration, ensure compatible drivers are installed
 
-## Performance over CPU / GPU
+## 💪Performance over CPU / GPU
 - CPU: Takes around 15-20 min for per image.
 - GPU: Depend on GPU in my case I have NVIDIA RTX 4060 takes around 20-30 sec per img.
 
