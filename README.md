@@ -25,10 +25,10 @@ RealESRGAN-NCNN/
 ```
 
 ## ⚡Usage:
-1. Click 'Load Image' to select an image
+1. Click `Load Image` to select an image
 2. Choose model and scale settings
-3. Click 'Process Image' to upscale
-4. Click 'Save Result' to save the upscaled image
+3. Click `Process Image` to upscale
+4. Click `Save Result` to save the upscaled image
 
 ## Supported Formats:
 - Input: PNG, JPG, JPEG, BMP, TIF, TIFF, WEBP
