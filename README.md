@@ -34,11 +34,12 @@ RealESRGAN-NCNN/
 - Input: PNG, JPG, JPEG, BMP, TIF, TIFF, WEBP
 - Output: JPG, PNG, WEBP
 
-## 💻System Requirements:
+## 💻System Performance:
 |Windows|Processor|RAM|GPU|Toal Time(s)|Perfomance|
 |---|---|---|---|---|---|
 |10|I3-I5|4/4+|Default|1500-2100|Too Slow|
 |10|I7|8+|Default|600|Slow|
+|10|I7|8+|GTX or AMD GPU|300|Quite Good|
 
 - Windows 10/11 (64-bit)
 - Processor I3 slow; I5 12th gen best
