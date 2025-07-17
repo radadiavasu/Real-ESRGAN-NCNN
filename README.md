@@ -40,12 +40,17 @@ RealESRGAN-NCNN/
 |10|I3-I5|4/4+|Default|1500-2100|Too Slow|
 |10|I7|8+|Default|600|Slow|
 |10|I7|8+|GTX or AMD GPU|300|Quite Good|
+|11|I3-I5|8+|Default|1300-1500|Too Slow|
+|11|I7|8+|Default|900-1100|Too Slow|
+|11|I7|8+|GTX or AMD GPU|300|Good|
+|11|I7|16+|RTX or AMD GPU|15-30|Execellent|
 
-- Windows 10/11 (64-bit)
-- Processor I3 slow; I5 12th gen best
-- Compatible GPU (Optional; For fast proecssing)
-- 4GB+ RAM
-- 1GB+ free disk space
+# Suggestion
+- Windows 11 (64-bit)
+- Processor I5 12th gen beat I7 otherwise I7 latest
+- Compatible GPU: RTX or amd rx best if have GTX then its fine
+- RAM: 8GB+ RAM
+- 1GB+ free disk space (For storing output images)
 
 ## 🚧Troubleshooting:
 - If the app doesn't start, ensure all files are extracted properly
