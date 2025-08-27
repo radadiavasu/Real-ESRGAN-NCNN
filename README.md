@@ -2,6 +2,7 @@
 
 ## 🔧Quick Start 
 1. Extract Zip and run `RealESRGAN-NCNN.exe` to run the application.
+2. Check out `Usage` below.
 
 ## Go through code.
 1. Extract this ZIP file to any folder
