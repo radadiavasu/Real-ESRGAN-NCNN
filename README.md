@@ -24,6 +24,9 @@ RealESRGAN-NCNN/
 └── _internal/                   # Application dependencies (auto-generated)
 ```
 
+## Result
+<img width="1911" height="1030" alt="image" src="https://github.com/user-attachments/assets/2cf20178-7abe-4ab2-8d24-0f97a4389fbd" />
+
 ## ⚡Usage:
 1. Click `Load Image` to select an image
 2. Choose model and scale settings
