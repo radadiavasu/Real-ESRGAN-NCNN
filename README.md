@@ -25,10 +25,6 @@ RealESRGAN-NCNN/
 ```
 
 ## Result
-<img width="1912" height="1038" alt="image" src="https://github.com/user-attachments/assets/5cfe1711-26db-47dd-8367-be907ead946b" />
-
-
-# More Results
 <details>
 
 <summary>Click Me</summary>
