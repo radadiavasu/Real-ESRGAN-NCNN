@@ -48,7 +48,7 @@ RealESRGAN-NCNN/
 ## 💻System Performance:
 |Windows|Processor|RAM|GPU|Toal Time(s)|Perfomance|
 |---|---|---|---|---|---|
-|10|I3-I5|4/4+|Default|1500-2100|Too Slow|
+|10|I3-I5 (>6 Gen)|4/4+|Default|1500-2100|Too Slow|
 |10|I7|8+|Default|600|Slow|
 |10|I7|8+|GTX or AMD GPU|300|Quite Good|
 |11|I3-I5|8+|Default|1300-1500|Too Slow|
