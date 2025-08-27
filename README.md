@@ -25,7 +25,8 @@ RealESRGAN-NCNN/
 ```
 
 ## Result
-<img width="1911" height="1030" alt="image" src="https://github.com/user-attachments/assets/2cf20178-7abe-4ab2-8d24-0f97a4389fbd" />
+<img width="1912" height="1038" alt="image" src="https://github.com/user-attachments/assets/5cfe1711-26db-47dd-8367-be907ead946b" />
+
 
 ## ⚡Usage:
 1. Click `Load Image` to select an image
