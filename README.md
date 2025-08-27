@@ -1,6 +1,6 @@
 # Real-ESRGAN NCNN Image Upscaler
 
-## 🔧Quick Start (For going through the code.)
+## 🔧Quick Start (Go through code.)
 1. Extract this ZIP file to any folder
 2. Download Real-ESRGAN NCNN models and place them in the `models` folder
 3. Download Real-ESRGAN NCNN executable and place it in the `bin` folder
