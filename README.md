@@ -28,7 +28,7 @@ RealESRGAN-NCNN/
 └── _internal/                   # Application dependencies (auto-generated)
 ```
 
-## Result
+## 🏁 Result
 <details>
 
 <summary>Click Me</summary>
